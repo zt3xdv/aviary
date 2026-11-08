@@ -1,0 +1,43 @@
+server:
+  address: "0.0.0.0"
+  port: 8080
+  read_timeout: "30s"
+  write_timeout: "30s"
+  idle_timeout: "120s"
+  tls:
+    enabled: false
+    cert_file: "/etc/aviary/tls/cert.pem"
+    key_file: "/etc/aviary/tls/key.pem"
+
+docker:
+  host: "unix:///var/run/docker.sock"
+  api_version: "1.44"
+  timeout: "60s"
+  max_concurrent: 10
+  default_memory_mb: 512
+  default_cpu_cores: 1.0
+  default_pids: 100
+  default_disk_mb: 10240
+  daemon_network: "aviary-test"
+  allowed_mounts: ["/data", "/mnt", "/media"]
+
+auth:
+  panel_public_key: "panel-base64-key"
+  token_expiry: "1h"
+  allowed_ips: ["0.0.0.0/0", "::/0"]
+
+metrics:
+  enabled: true
+  address: "0.0.0.0"
+  port: 9090
+  path: "/metrics"
+
+logging:
+  level: "info"
+  format: "json"
+  output: "stdout"
+
+storage:
+  root: "/var/lib/aviary/volumes"
+  container_uid: 10000
+  container_gid: 10000

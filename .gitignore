@@ -1,0 +1,14 @@
+# Binaries
+./aviary
+./keygen
+
+# Keys
+keys/
+*.key
+
+# Build output
+*.out
+*.test
+
+# Test
+*.coverprofile
